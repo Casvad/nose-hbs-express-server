@@ -3,6 +3,7 @@ const hbs = require('hbs');
 require('./hbs/helpers')
 const app = express()
 
+var port = process.env.PORT || 8080;
 app.use ( express.static( __dirname + '/public') )
 //Express hbs engine
 hbs.registerPartials(__dirname + '/views/parciales');
@@ -19,4 +20,5 @@ app.get('/', function (req, res) {
     res.render('about')
   })
  
-app.listen(8080)
+app.listen(port)
+
